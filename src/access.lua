@@ -14,6 +14,7 @@ local jwt = require "resty.jwt"
   
       if request_uri ~= plugin_conf.login_uri then
           local authorization_header = req_get_headers()["x-authorization"]
+          ngx.log(ngx.ERR, authorization_header)
           
            if not authorization_header or authorization_header == nil or authorization_header == '' then 
               ngx.log(ngx.ERR, authorization_header)
